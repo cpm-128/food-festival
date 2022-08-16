@@ -1,6 +1,8 @@
 # Food Festival
 Progressive Web Application for a 3-day festival
 
+Deployed Application: https://cpm-128.github.io/food-festival/
+
 ## Key Takeaways
 - Identify performance bottlenecks in web applications.
 - Explain how performance can be measured in web applications.
