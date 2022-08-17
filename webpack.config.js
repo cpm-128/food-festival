@@ -5,11 +5,17 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 // main config
 module.exports = {
     // entry: root of the bundle and beginning of dependency graph
-    entry: './assets/js/script.js',
+    entry: {
+        app: './assets/js/script.js',
+        events: './assets/js/events.js',
+        schedule: './assets/js/schedule.js',
+        tickets: './assets/js/tickets.js'
+    },
     // output: directory where the budled code will be exported to; common practice to put in a folder named dist
+    // build step will create a series of bundled files, one for each listing in the entry object
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'main.bundle.js'
+        filename: '[name].bundle.js'
     },
     // plugins: direct the webpack what to do
     plugins: [
