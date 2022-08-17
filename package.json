@@ -21,6 +21,7 @@
   "homepage": "https://github.com/cpm-128/food-festival#readme",
   "devDependencies": {
     "webpack": "^5.74.0",
+    "webpack-bundle-analyzer": "^4.4.2",
     "webpack-cli": "^4.10.0"
   },
   "dependencies": {

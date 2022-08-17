@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 // main config
 module.exports = {
@@ -16,6 +17,9 @@ module.exports = {
             $: "jquery",
             jQuery: "jquery"
         }),
+        new BundleAnalyzerPlugin({
+            analyzerMode: "static", // the report outputs to an html file in the dist folder
+        })
     ],
     // mode: that the webpack will run. Default is to pun in production mode
     mode: 'development'
