@@ -17,11 +17,11 @@ const FILES_TO_CACHE = [
     './dist/schedule.bundle.js'
 ];
 
-// the code in stall the service worker by adding files to the prechase so the app can use the cache
+// the code install the service worker by adding files to the prechase so the app can use the cache
 self.addEventListener('install', function (e) {
     e.waitUntil(
         caches.open(CACHE_NAME).then(function (cache) {
-            //console.log('>> installing cache >> ' + CACHE_NAME)
+            console.log('>> installing cache >> ' + CACHE_NAME)
             return cache.addAll(FILES_TO_CACHE)
         })
     )
@@ -38,7 +38,7 @@ self.addEventListener('activate', function (e) {
             return Promise.all(
                 keyList.map(function (key, i) {
                     if (cacheKeeplist.indexOf(key) === -1) {
-                        //console.log('>> Deleting cache >> ' + keyList[i] );
+                        console.log('>> Deleting cache >> ' + keyList[i] );
                         return caches.delete(keyList[i]);
                     }
                 })
@@ -49,16 +49,16 @@ self.addEventListener('activate', function (e) {
 
 // tell the application to retrieve the information from the cache
 self.addEventListener('fetch', function (e) {
-    //console.log('>> fetch request >> ' + e.request.url)
+    console.log('>> fetch request >> ' + e.request.url)
     e.respondWith(
         // check if the request is stored in the cache or not
         caches.match(e.request).then(function (request) {
             if (request) {
-                //console.log('>> responding with cache >> ' + e.request.url)
+                console.log('>> responding with cache >> ' + e.request.url)
                 return request
             } // if not in cache, retrieve from online network as usual
             else {
-                //console.log('>> file is not cached, fetching >> ' + e.request.url)
+                console.log('>> file is not cached, fetching >> ' + e.request.url)
                 return fetch(e.request)
             }
         })
