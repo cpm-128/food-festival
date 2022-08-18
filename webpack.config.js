@@ -17,6 +17,29 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].bundle.js'
     },
+    module: {
+        rules: [
+            {
+                // identify the types of files to progress using a regex to search for .jpg
+                test: /\.jpg$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            esModule: false,
+                            name (file) {
+                                return '[path][name].[ext]'
+                            },
+                            // return the name of the built img file with the extension
+                            publicPath: function(url) {
+                                return url.replace('../', '/assets/')
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    },
     // plugins: direct the webpack what to do
     plugins: [
         new webpack.ProvidePlugin({
