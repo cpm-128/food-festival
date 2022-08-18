@@ -22,15 +22,15 @@
   "homepage": "https://github.com/cpm-128/food-festival#readme",
   "devDependencies": {
     "file-loader": "^6.2.0",
-    "webpack": "^5.74.0",
+    "image-webpack-loader": "^6.0.0",
+    "webpack": "^5.37.0",
     "webpack-bundle-analyzer": "^4.4.2",
-    "webpack-cli": "^4.10.0",
+    "webpack-cli": "^4.7.0",
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
-    "image-webpack-loader": "^8.1.0",
-    "jquery": "^3.6.0",
+    "jquery": "^3.4.1",
     "popper.js": "^1.16.0",
     "save": "^2.5.0"
   }
