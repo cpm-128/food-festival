@@ -35,6 +35,10 @@ module.exports = {
                                 return url.replace('../', '/assets/')
                             }
                         }
+                    },
+                    {
+                        // optimize the files AFTER they are processed and emitted
+                        loader: 'image-webpack-loader'
                     }
                 ]
             }
