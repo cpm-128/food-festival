@@ -46,3 +46,21 @@ self.addEventListener('activate', function (e) {
         })
     );
 });
+
+// tell the application to retrieve the information from the cache
+self.addEventListener('fetch', function (e) {
+    console.log('>> fetch request >> ' + e.request.url)
+    e.respondWith(
+        // check if the request is stored in the cache or not
+        caches.match(e.request).then(function (request) {
+            if (request) {
+                console.log('>> responding with cache >> ' + e.request.url)
+                return request
+            } // if not in cache, retrieve from online network as usual
+            else {
+                console.log('>> file is not cached, fetching >> ' + e.request.url)
+                return fetch(e.request)
+            }
+        })
+    )
+})
